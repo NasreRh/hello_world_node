@@ -1,7 +1,9 @@
-const http = require("http");
+const http = require("http"),
+      {readFileSync} = require("fs"),
+      txt = readFileSync("test.txt","utf8");
 
 const server = http.createServer((req,res)=>{
-    res.write("hi it's me node js and i am working just fine ")
+    res.write(txt)
     res.end()
 })
 server.listen(5000)
